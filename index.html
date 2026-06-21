@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camino Directo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div id="app" class="container">
+        <!-- Pantalla 1: Inicio -->
+        <section id="screen-intro" class="screen active">
+            <h1 class="title">Una experiencia compartida</h1>
+            <p class="description">
+                A continuación verás tres imágenes.<br>
+                Tómate un momento con cada una.<br>
+                Deja que la imagen resuene en ti. No hay respuestas correctas.
+            </p>
+            <p class="instruction">Tu única tarea es <strong>describir cada objeto con una sola palabra</strong>. <br>La primera que surja en tu experiencia.</p>
+            <button class="btn btn-start" onclick="nextScreen('screen-intro', 'screen-key')">Comenzar</button>
+        </section>
+
+        <!-- Pantalla 2: Llave -->
+        <section id="screen-key" class="screen">
+            <div class="image-container">
+                <img src="assets/images/key.png" alt="Llave">
+            </div>
+            <p class="instruction-small" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; font-style: italic;">Describe la llave con una sola palabra, sin utilizar la palabra 'llave'.</p>
+            <div class="input-group">
+                <input type="text" id="word-key" class="word-input" placeholder="Tu palabra..." autocomplete="off">
+            </div>
+            <button class="btn btn-next" onclick="nextScreen('screen-key', 'screen-door')">Siguiente</button>
+        </section>
+
+        <!-- Pantalla 3: Puerta -->
+        <section id="screen-door" class="screen">
+            <div class="image-container">
+                <img src="assets/images/door.png" alt="Puerta">
+            </div>
+            <p class="instruction-small" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; font-style: italic;">Describe la puerta con una sola palabra, sin utilizar la palabra 'puerta'.</p>
+            <div class="input-group">
+                <input type="text" id="word-door" class="word-input" placeholder="Tu palabra..." autocomplete="off">
+            </div>
+            <button class="btn btn-next" onclick="nextScreen('screen-door', 'screen-candle')">Siguiente</button>
+        </section>
+
+        <!-- Pantalla 4: Vela -->
+        <section id="screen-candle" class="screen">
+            <div class="image-container">
+                <img src="assets/images/candle.png" alt="Vela">
+            </div>
+            <p class="instruction-small" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; font-style: italic;">Describe la vela con una sola palabra, sin utilizar la palabra 'vela'.</p>
+            <div class="input-group">
+                <input type="text" id="word-candle" class="word-input" placeholder="Tu palabra..." autocomplete="off">
+            </div>
+            <button class="btn btn-next" onclick="submitData()">Finalizar</button>
+        </section>
+
+        <!-- Pantalla 5: Agradecimiento -->
+        <section id="screen-thanks" class="screen">
+            <h1 class="title">Gracias</h1>
+            <p class="description">Nos vemos el miércoles en "Siendo la práctica".</p>
+            <div class="end-marker"></div>
+        </section>
+        
+        <!-- Loading overlay -->
+        <div id="loading" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Guardando...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
